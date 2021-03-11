@@ -5,3 +5,7 @@
   height: 50px;
   cursor: pointer;
 }
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
