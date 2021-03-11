@@ -135,9 +135,42 @@ body {
   justify-items: center;
 }
 
+/* Responsive styling
+ */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  background: #e8e8e8;
+  /* justify-items: center; */
+}
+
+h1 {
+  margin: 30px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1%;
+  color: rgb(0, 64, 255);
+}
+.map {
+  margin-top: 10px;
+  width: 300px;
+  height: 200px;
+}
+
 /*
 MapBox styling
  */
+.popup-card {
+  font-size: large;
+  justify-content: center;
+  background-color: transparent;
+}
+
 .marker {
   background-image: url("./public/icons/camera@2x.png");
   background-size: cover;
@@ -147,5 +180,20 @@ MapBox styling
 }
 
 .mapboxgl-popup {
+  opacity: 0.8;
   max-width: 200px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .map {
+    width: 550px;
+    height: 500px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .map {
+    width: 800px;
+    height: 600px;
+  }
 }

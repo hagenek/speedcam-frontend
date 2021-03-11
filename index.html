@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <title>Speed Cam Map</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="index.js" defer></script>
+    <script type="module" src="index.js" defer></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Hello!</h1>
-    <div id="map" style="width: 800px; height: 600px"></div>
+    <h1>Speed cameras in Norway!</h1>
+    <div class="map" id="map"></div>
   </body>
 </html>

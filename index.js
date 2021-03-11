@@ -1,7 +1,6 @@
-const headLine = (document.querySelector("h1").style = "color: blue");
+import { MAPBOX_API } from "./apikey.js";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiaGFnZW5layIsImEiOiJja2JveGdsZ3Mxam91MnFxbnJua3Nmamg4In0.5smhwVMhZaL70x3KvQ_qCw";
+mapboxgl.accessToken = MAPBOX_API;
 
 var map = new mapboxgl.Map({
   container: "map",
@@ -24,8 +23,11 @@ const getGeoJson = async (uri) => {
     el.className = "marker";
 
     // Popup with custom text from the JSON
-    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-      marker.properties.customPopup
+    var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+      `<div class="popup-card">
+        <p>${marker.properties.label.text}</p>
+        <img src="${marker.properties.photo}" width='150px'>
+        </div>`
     );
 
     console.log(marker.properties);
