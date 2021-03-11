@@ -1,12 +1,14 @@
 const headLine = (document.querySelector("h1").style = "color: blue");
-const { token } = require("env.js");
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiaGFnZW5layIsImEiOiJja2JveGdsZ3Mxam91MnFxbnJua3Nmamg4In0.5smhwVMhZaL70x3KvQ_qCw";
 
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/streets-v11",
+  style: "mapbox://styles/hagenek/ckm4w5o7ra5sx17qomn47soit",
+  center: [10.628401394407115, 59.9082778872939],
+  zoom: 15.15,
+  attributionControl: false,
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -23,8 +25,10 @@ const getGeoJson = async (uri) => {
 
     // Popup with custom text from the JSON
     var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-      marker.properties.label.text
+      marker.properties.customPopup
     );
+
+    console.log(marker.properties);
 
     // make a marker for each feature and add to the map
     new mapboxgl.Marker(el)
@@ -34,4 +38,4 @@ const getGeoJson = async (uri) => {
   });
 };
 
-getGeoJson("http://localhost:5000");
+getGeoJson("https://quiet-wildwood-47347.herokuapp.com/");
