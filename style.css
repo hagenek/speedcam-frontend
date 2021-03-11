@@ -1,0 +1,7 @@
+.marker {
+  background-image: url("./public/icons/camera@2x.png");
+  background-size: cover;
+  width: 70px;
+  height: 50px;
+  cursor: pointer;
+}

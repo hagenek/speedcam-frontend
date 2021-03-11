@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speed Cam Map</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Hello!</h1>
+    <p class="marker"></p>
+    <div id="map" style="width: 400px; height: 300px"></div>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiaGFnZW5layIsImEiOiJja2JveGdsZ3Mxam91MnFxbnJua3Nmamg4In0.5smhwVMhZaL70x3KvQ_qCw";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+      });
+      map.addControl(new mapboxgl.NavigationControl());
+
+      var geojson = {
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [-77.032, 38.913],
+            },
+            properties: {
+              title: "Mapbox",
+              description: "Washington, D.C.",
+            },
+          },
+          {
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [-122.414, 37.776],
+            },
+            properties: {
+              title: "Mapbox",
+              description: "San Francisco, California",
+            },
+          },
+        ],
+      };
+
+      geojson.features.forEach(function (marker) {
+        // create a HTML element for each feature
+        var el = document.createElement("div");
+        el.className = "marker";
+
+        // make a marker for each feature and add to the map
+        new mapboxgl.Marker(el)
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
+      });
+    </script>
+  </body>
+</html>
