@@ -1,4 +1,4 @@
-import { MAPBOX_API } from "./apikey.js";
+import MAPBOX_API from "./apikey.js";
 
 mapboxgl.accessToken = MAPBOX_API;
 
